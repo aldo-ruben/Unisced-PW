@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Metadados do documento -->
+    <meta charset="UTF-8"> <!-- Define o conjunto de caracteres como UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Define a escala inicial da viewport -->
+    <title>Centro de Recursos - Formulário</title> <!-- Título da página -->
+    <link rel="stylesheet" href="style.css"> <!-- Link para o arquivo CSS externo -->
+</head>
+<body>
+    <header>
+        <h1>UnISCED Formulario</h1> <!-- Título do cabeçalho -->
+    </header>
+    <section class="container">
+        <h2>Parecer do Centro de Recursos</h2> <!-- Título da seção -->
+        <!-- Formulário para parecer do Centro de Recursos -->
+        <form action="processar.php" method="post"> <!-- Ação e método do formulário -->
+            <!-- Campo para selecionar o despacho -->
+            <label for="despacho">Despacho:</label>
+            <select name="despacho" id="despacho" required> <!-- Dropdown para seleção do despacho -->
+                <option value="">Selecione...</option> <!-- Opção padrão -->
+                <option value="pendente">Pendente</option> <!-- Opção: Pendente -->
+                <option value="deferido">Deferido</option> <!-- Opção: Deferido -->
+                <option value="indeferido">Indeferido</option> <!-- Opção: Indeferido -->
+            </select>
+            <!-- Campo para selecionar a situação administrativa -->
+            <label for="situacao">Situação administrativa:</label>
+            <select name="situacao" id="situacao" required> <!-- Dropdown para seleção da situação administrativa -->
+                <option value="">Selecione...</option> <!-- Opção padrão -->
+                <option value="regular">Regular</option> <!-- Opção: Regular -->
+                <option value="irregular">Irregular</option> <!-- Opção: Irregular -->
+            </select>
+            <br>
+            <!-- Título da seção de identificação do requerente -->
+            <h2>Identificação do requerente</h2>
+            <!-- Campos para preencher dados do requerente -->
+            <label for="nome">Nome do estudante:</label>
+            <input type="text" name="nome" id="nome" required> <!-- Campo: Nome -->
+            <label for="codigo">Código do estudante:</label>
+            <input type="number" name="codigo" id="codigo" required> <!-- Campo: Código -->
+            <label for="curso">Curso:</label>
+            <input type="text" name="curso" id="curso" required> <!-- Campo: Curso -->
+            <label for="ano">Ano de frequência:</label>
+            <input type="number" name="ano" id="ano" required> <!-- Campo: Ano de frequência -->
+            <label for="contacto">Contacto:</label>
+            <input type="number" name="contacto" id="contacto" required> <!-- Campo: Contacto -->
+            <label for="email">E-mail:</label>
+            <input type="email" name="email" id="email" required> <!-- Campo: E-mail -->
+            <br>
+            <!-- Campo para selecionar o tipo de pedido -->
+            <label for="pedido">Pedido:</label>
+            <select name="pedido" id="pedido" required> <!-- Dropdown para seleção do pedido -->
+                <option value="">Selecione...</option> <!-- Opção padrão -->
+                <!-- Grupo de pedidos gerais -->
+                <optgroup label="Pedidos Gerais">
+                    <option value="anulacao_matricula">Anulação de Matrícula</option>
+                    <option value="cartao_estudante">Cartão de Estudante 2ª via</option>
+                    <option value="declaracao">Declaração</option>
+                    <option value="mudanca_curso">Mudança de Curso</option>
+                    <option value="equivalencia">Equivalência</option>
+                    <option value="situacao_divida">Situação de Dívida</option>
+                    <option value="mudanca_plano_pagamento">Mudança de Plano de Pagamento de Propinas</option>
+                    <option value="monografia_fora_prazo">Submissão de Monografias fora do Prazo</option>
+                    <option value="outros">Outros</option>
+                </optgroup>
+                <!-- Grupo de pedidos específicos -->
+                <optgroup label="Pedidos Específicos">
+                    <option value="reclamacao_nota">Reclamação de Nota de Teste/Exame</option>
+                    <option value="submissao_relatorio_estagio">Submissão de Relatório de Estágio</option>
+                    <option value="realizacao_exame">Realização de Exame</option>
+                    <option value="matricula_fora_epoca">Matricula fora da época</option>
+                    <option value="reintegracao">Reintegração para o ano Académico 20__</option>
+                    <option value="transferencia">Transferência para outros CRs</option>
+                    <option value="pedidos_certificados">Pedidos de Certificados</option>
+                </optgroup>
+            </select>
+            <!-- Subopções condicionais para alguns tipos de pedido -->
+            <div id="declaracao_subopcoes" style="display: none;"> <!-- Div para subopções de declaração -->
+                <label for="declaracao_tipo">Tipo de Declaração:</label>
+                <select name="declaracao_tipo" id="declaracao_tipo">
+                    <option value="">Selecione...</option>
+                    <option value="matricula">Matrícula</option>
+                    <option value="frequencia">Frequência</option>
+                    <option value="trancamento">Trancamento</option>
+                    <option value="abono_faltas">Abono de Faltas</option>
+                    <option value="outros">Outros</option>
+                </select>
+            </div>
+            <div id="realizacao_exame_subopcoes" style="display: none;"> <!-- Div para subopções de realização de exame -->
+                <label for="realizacao_exame_tipo">Tipo de Exame:</label>
+                <select name="realizacao_exame_tipo" id="realizacao_exame_tipo">
+                    <option value="">Selecione...</option>
+                    <option value="recuperacao">Recuperação</option>
+                    <option value="especial">Especial</option>
+                    <option value="equivalencia">Equivalência</option>
+                </select>
+            </div>
+            <br>
+            <!-- Campo para justificativa -->
+            <label for="justificativa">Justific
+                ativa:</label>
+                <textarea name="justificativa" id="justificativa" rows="5" required></textarea> <!-- Campo: Justificativa -->
+                <!-- Campo para a data do requerimento -->
+                <label for="data">Data do Requerimento:</label>
+                <input type="date" name="data" id="data" required> <!-- Campo: Data do Requerimento -->
+                <br>
+                <!-- Botão de envio do formulário -->
+                <button type="submit">Enviar Requerimento</button> <!-- Botão de envio -->
+            </form>
+        </section>
+        <!-- Inclusão do arquivo JavaScript -->
+        <script src="script.js"></script> <!-- Script JavaScript -->
+    </body>
+    </html>
+    
